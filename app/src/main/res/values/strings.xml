@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">KeepKalm</string>
+    <string name="what_is_your_full_name">Please enter your name </string>
+    <string name="validateNameButtonText">Now say my name...</string>
+    <string name="motto">Take a breath</string>
+    <string name="logo_description">keep kalm logo</string>
 </resources>
