@@ -11,9 +11,39 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="255dp"
-        android:text="FIRST PAGE WITH MEME"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="326dp"
+        android:fontFamily="@font/cavolini"
+        android:padding="10dp"
+        android:text="@string/app_name"
+        android:textColor="#00BCD4"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginBottom="57dp"
+        android:contentDescription="@string/logo_description"
+        app:layout_constraintBottom_toTopOf="@+id/motto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/motto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="294dp"
+        android:gravity="center"
+        android:text="@string/motto"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:layout_editor_absoluteX="136dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
