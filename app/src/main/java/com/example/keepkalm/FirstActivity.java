@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-/*TO DO:
+/*TODO:
 - add the a function to call the meme API and uptade the image
 - maybe use resultActivity than current way
 */
@@ -36,23 +36,13 @@ public class FirstActivity extends AppCompatActivity {
         //animation: https://github.com/daimajia/AndroidViewAnimations
         YoYo.with(Techniques.FadeInRight).duration(2000).repeat(0).playOn(motto);
 
-
-
-
-
-
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
                 //if userName isn't present in sharedPreference we have to ask for it
                 if(user_full_name.equals("")){
-
-
                     DialogName dialogName = new DialogName();
                     dialogName.show(getSupportFragmentManager(),"nameDialog");
-
-                    //Intent inputNameActivityIntent = new Intent(FirstActivity.this, InputNameActivity.class);
-                    //startActivity(inputNameActivityIntent);
                 }else{
                     Intent mainActivityIntent = new Intent(FirstActivity.this, MainActivity.class);
                     startActivity(mainActivityIntent);

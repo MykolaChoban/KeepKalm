@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,8 +31,7 @@ public class DialogName extends AppCompatDialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        Log.d("Debug message", "dialog executed");
 
         // Get the layout inflater
         LayoutInflater inflater = requireActivity().getLayoutInflater();
@@ -39,29 +39,18 @@ public class DialogName extends AppCompatDialogFragment {
         // Pass null as the parent view because its going in the dialog layout
         View view = inflater.inflate(R.layout.activity_dialog_name, null);
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setTitle("Who are you?")
                 /*.setPositiveButton("Validate my name", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (!nameEditText.getText().toString().matches("")){
-                            SharedPreferences prefs = getContext().getSharedPreferences("userInfo",android.content.Context.MODE_PRIVATE); //PreferenceManager.getDefaultSharedPreferences( getContext() );
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putString("user_full_name",nameEditText.getText().toString());
-                            System.out.println("lol" + nameEditText.getText().toString());
-                            editor.commit();
-                            editor.apply();
-                            startActivity(mainActivityIntent);
-                        }else{
-                            //animation: https://github.com/daimajia/AndroidViewAnimations
-                            YoYo.with(Techniques.Shake).duration(200).repeat(5).playOn(nameEditText);
-                            Toast.makeText(getContext(),"Don't skip me... I do it for you!",Toast.LENGTH_SHORT).show();
-                        }
                     }
                 })*/;
 
         mainActivityIntent = new Intent(getContext(), MainActivity.class);
         nameEditText = view.findViewById(R.id.edit_person_name);
+
         nameEditText.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View view, int keyCode, KeyEvent keyevent) {
                 //If the keyevent is a key-down event on the "enter" button
@@ -77,7 +66,7 @@ public class DialogName extends AppCompatDialogFragment {
                     }else{
                         //animation: https://github.com/daimajia/AndroidViewAnimations
                         YoYo.with(Techniques.Shake).duration(200).repeat(5).playOn(nameEditText);
-                        Toast.makeText(getContext(),"Don't skip me... I do it for you!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"Please, don't skip me please",Toast.LENGTH_SHORT).show();
                     }
                     return true;
                 }
