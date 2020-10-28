@@ -6,14 +6,107 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/user_full_name_EditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="20sp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_full_name_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cavolini"
+                android:gravity="center_horizontal"
+                android:text="Welcome"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/meme_textEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:fontFamily="@font/cavolini"
+                android:text="Meme of the day :"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="330sp"
+                android:layout_margin="20sp"
+                app:srcCompat="@drawable/assignment_sample_o_155161" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/what_is_told_about_you_imageView"
+                    android:layout_width="100sp"
+                    android:layout_height="80sp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    app:srcCompat="@drawable/about_you_button" />
+
+                <ImageView
+                    android:id="@+id/cat_imageView"
+                    android:layout_width="100sp"
+                    android:layout_height="80sp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    app:srcCompat="@drawable/cat_button" />
+
+                <ImageView
+                    android:id="@+id/decision_maker_imageView"
+                    android:layout_width="100sp"
+                    android:layout_height="80sp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    app:srcCompat="@drawable/decision_button" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/trump_imageView"
+                    android:layout_width="100sp"
+                    android:layout_height="80sp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    app:srcCompat="@drawable/trump_button" />
+
+                <ImageView
+                    android:id="@+id/music_imageView"
+                    android:layout_width="100sp"
+                    android:layout_height="80sp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    app:srcCompat="@drawable/music_button" />
+
+                <ImageView
+                    android:id="@+id/random_facts_imageView"
+                    android:layout_width="100sp"
+                    android:layout_height="80sp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    app:srcCompat="@drawable/random_button" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
