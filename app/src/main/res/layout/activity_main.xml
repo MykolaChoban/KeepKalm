@@ -6,17 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="20sp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50sp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/user_full_name_EditText"
@@ -27,6 +24,12 @@
                 android:text="Welcome"
                 android:textSize="20sp" />
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="330sp"
+                android:layout_margin="20sp" />
+
             <TextView
                 android:id="@+id/meme_textEdit"
                 android:layout_width="match_parent"
@@ -35,13 +38,6 @@
                 android:fontFamily="@font/cavolini"
                 android:text="Meme of the day :"
                 android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="330sp"
-                android:layout_margin="20sp"
-                app:srcCompat="@drawable/assignment_sample_o_155161" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,6 +49,7 @@
                     android:layout_width="100sp"
                     android:layout_height="80sp"
                     android:layout_weight="1"
+                    android:onClick="launchAboutYou"
                     android:padding="5sp"
                     app:srcCompat="@drawable/about_you_button" />
 
@@ -61,6 +58,7 @@
                     android:layout_width="100sp"
                     android:layout_height="80sp"
                     android:layout_weight="1"
+                    android:onClick="launchCat"
                     android:padding="5sp"
                     app:srcCompat="@drawable/cat_button" />
 
@@ -69,6 +67,7 @@
                     android:layout_width="100sp"
                     android:layout_height="80sp"
                     android:layout_weight="1"
+                    android:onClick="launchDecision"
                     android:padding="5sp"
                     app:srcCompat="@drawable/decision_button" />
 
@@ -84,6 +83,7 @@
                     android:layout_width="100sp"
                     android:layout_height="80sp"
                     android:layout_weight="1"
+                    android:onClick="launchTrump"
                     android:padding="5sp"
                     app:srcCompat="@drawable/trump_button" />
 
@@ -92,6 +92,7 @@
                     android:layout_width="100sp"
                     android:layout_height="80sp"
                     android:layout_weight="1"
+                    android:onClick="launchMusic"
                     android:padding="5sp"
                     app:srcCompat="@drawable/music_button" />
 
@@ -100,13 +101,12 @@
                     android:layout_width="100sp"
                     android:layout_height="80sp"
                     android:layout_weight="1"
+                    android:onClick="launchRandom"
                     android:padding="5sp"
                     app:srcCompat="@drawable/random_button" />
 
             </LinearLayout>
-
         </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
