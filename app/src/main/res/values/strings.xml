@@ -4,4 +4,7 @@
     <string name="validateNameButtonText">Now say my name...</string>
     <string name="motto">Take a breath</string>
     <string name="logo_description">keep kalm logo</string>
+    <string name="gif">decision_gif</string>
+    <string name="got_it">Got it!</string>
+    <string name="should_you_do_it">Should you do it ?</string>
 </resources>

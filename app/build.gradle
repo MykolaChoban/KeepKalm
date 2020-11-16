@@ -32,4 +32,9 @@ dependencies {
     //for animation:https://github.com/daimajia/AndroidViewAnimations
     implementation 'com.daimajia.androidanimations:library:2.4@aar'
 
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
 }
