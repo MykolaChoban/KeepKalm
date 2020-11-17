@@ -7,9 +7,12 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
@@ -35,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         int trackId = getResources().getIdentifier("fart_sound_effect", "raw", getPackageName());
         mediaPlayer = MediaPlayer.create(this, trackId);
+
+
     }
 
     @Override
@@ -46,8 +51,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchTrump(View view) {
-        Intent intent = new Intent(this, TrumpActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, TrumpActivity.class);
+        //startActivity(intent);
+
+        DialogTrump dialog = new DialogTrump();
+        dialog.show(getSupportFragmentManager(),"trumpDialog");
     }
 
     public void launchMusic(View view) {
@@ -56,8 +64,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchAboutYou(View view) {
-        Intent intent = new Intent(this, AboutYouActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, AboutYouActivity.class);
+        //startActivity(intent);
+
+        DialogChuckNorrisJoke dialog = new DialogChuckNorrisJoke();
+        dialog.show(getSupportFragmentManager(),"chuckNorrisDialog");
     }
 
     public void launchCat(View view) {
