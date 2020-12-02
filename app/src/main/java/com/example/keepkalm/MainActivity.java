@@ -7,15 +7,8 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-
-import com.android.volley.toolbox.StringRequest;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,18 +17,17 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import butterknife.BindView;
-
+import org.json.JSONArray;
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
-
 public class MainActivity extends AppCompatActivity {
+
     private MediaPlayer mediaPlayer;
     private SharedPreferences prefs;
-    private Button musicButton, decisionButton, catButton, aboutYouButton, randomButton, trumpButton;
-    private ImageView memeImageView;
-    String user_full_name, imageUrl;
+    private TextView name;
+    private TextView quoteTextView;
+    private String user_full_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences("userInfo",MODE_PRIVATE);
         user_full_name = prefs.getString("user_full_name","");
-        memeImageView = findViewById(R.id.imageView);
         TextView name = findViewById(R.id.user_full_name_EditText);
+        quoteTextView = findViewById(R.id.quote_TextView);
+
         name.setText("Hello " + user_full_name);
         //for debug purpose
         Log.i("user name",user_full_name);
 
         int trackId = getResources().getIdentifier("fart_sound_effect", "raw", getPackageName());
         mediaPlayer = MediaPlayer.create(this, trackId);
+        fetchQuoteOfTheDay(quoteTextView);
     }
 
     @Override
@@ -62,21 +56,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void getMeme(){
+    public void fetchQuoteOfTheDay(final TextView textView){
+        //documentation  http://quotes.rest/
+        String url = "https://quotes.rest/qod";
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://meme-api.herokuapp.com/gimme";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
+
+        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(JSONObject response) {
+                        //{"success":{"total":1},"contents":{"quotes":[{"quote":"A successful man is one who can lay a firm foundation with the bricks that others throw at him.","length":"95","author":"Sidney Greenberg","tags":["inspire","life","success"],"category":"inspire","language":"en","date":"2020-12-02","permalink":"https:\/\/theysaidso.com\/quote\/sidney-greenberg-a-successful-man-is-one-who-can-lay-a-firm-foundation-with-the","id":"O8OiauUuV2FEq8DZElUNwQeF","background":"https:\/\/theysaidso.com\/img\/qod\/qod-inspire.jpg","title":"Inspiring Quote of the day"}]},"baseurl":"https:\/\/theysaidso.com","copyright":{"year":2022,"url":"https:\/\/theysaidso.com"}}
+                        Integer FIRST_ELEMENT = 0;
                         try {
-                            //{"postLink":"https://redd.it/k4tjck","subreddit":"dankmemes","title":"humanity","url":"https://i.redd.it/opipssjjzm261.png","nsfw":false,"spoiler":false,"author":"islmakaha","ups":1550,"preview":["https://preview.redd.it/opipssjjzm261.png?width=108\u0026crop=smart\u0026auto=webp\u0026s=5426704f36ec8a58ea14d5bdb2f3bef1d345ff1c","https://preview.redd.it/opipssjjzm261.png?width=216\u0026crop=smart\u0026auto=webp\u0026s=88437148c3af6e1a642e9813d8cdd842e087e749","https://preview.redd.it/opipssjjzm261.png?width=320\u0026crop=smart\u0026auto=webp\u0026s=534d6608d7795f07ebec468fdfda76056714c730"]}
-                            JSONObject JSONResponse = new JSONObject(response);
-                            String imageUrl = JSONResponse.getString("url");
-                            displayMeme(memeImageView, imageUrl);
-                        }
-                        catch(Exception e){
-                            Log.i("debug", e.toString());
+                            JSONObject contents = response.getJSONObject("contents");
+                            JSONArray quotes = contents.getJSONArray("quotes");
+                            JSONObject quote = (JSONObject) quotes.get(FIRST_ELEMENT);
+                            Log.d("Volley",quote.toString());
+                            textView.setText(quote.getString("quote") +"\n-"+quote.getString("author"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -85,17 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("debug",e.toString());
             }
         });
-        queue.add(stringRequest);
-    }
-
-    public void displayMeme(ImageView imageView, String url){
-        Log.i("debug","url : " + url);
-        Picasso.get().invalidate(url);//https://github.com/square/picasso/issues/1186
-        Picasso.get()
-                .load(url)
-                .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-                .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE) //.placeholder(R.drawable.default_image_placeholder)
-                .into(imageView);
+        queue.add(request);
     }
 
     public void launchTrump(View view) {

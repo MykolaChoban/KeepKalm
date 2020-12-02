@@ -22,22 +22,31 @@
                 android:fontFamily="@font/cavolini"
                 android:gravity="center_horizontal"
                 android:text="Welcome"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
                 android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="330sp"
-                android:layout_margin="20sp" />
 
             <TextView
-                android:id="@+id/meme_textEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50sp"
                 android:fontFamily="@font/cavolini"
-                android:text="Meme of the day :"
-                android:textSize="20sp" />
+                android:text="Quote of the day:"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/quote_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cavolini"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:background="@drawable/border"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,30 +55,22 @@
 
                 <ImageView
                     android:id="@+id/what_is_told_about_you_imageView"
-                    android:layout_width="100sp"
-                    android:layout_height="80sp"
-                    android:layout_weight="1"
                     android:onClick="launchAboutYou"
-                    android:padding="5sp"
-                    app:srcCompat="@drawable/about_you_button" />
+                    app:srcCompat="@drawable/about_you_button"
+                    style="@style/button_main_menu"/>
 
                 <ImageView
                     android:id="@+id/cat_imageView"
-                    android:layout_width="100sp"
-                    android:layout_height="80sp"
-                    android:layout_weight="1"
                     android:onClick="launchCat"
                     android:padding="5sp"
-                    app:srcCompat="@drawable/cat_button" />
+                    app:srcCompat="@drawable/cat_button"
+                    style="@style/button_main_menu" />
 
                 <ImageView
                     android:id="@+id/decision_maker_imageView"
-                    android:layout_width="100sp"
-                    android:layout_height="80sp"
-                    android:layout_weight="1"
                     android:onClick="launchDecision"
-                    android:padding="5sp"
-                    app:srcCompat="@drawable/decision_button" />
+                    app:srcCompat="@drawable/decision_button"
+                    style="@style/button_main_menu" />
 
             </LinearLayout>
 
@@ -92,12 +93,9 @@
 
                 <ImageView
                     android:id="@+id/random_facts_imageView"
-                    android:layout_width="100sp"
-                    android:layout_height="80sp"
-                    android:layout_weight="1"
                     android:onClick="launchRandom"
-                    android:padding="5sp"
-                    app:srcCompat="@drawable/random_button" />
+                    app:srcCompat="@drawable/random_button"
+                    style="@style/button_main_menu" />
 
             </LinearLayout>
 
@@ -109,12 +107,9 @@
 
                 <ImageView
                     android:id="@+id/memeButton"
-                    android:layout_width="100sp"
-                    android:layout_height="80sp"
-                    android:layout_weight="1"
                     android:onClick="launchMeme"
-                    android:padding="5sp"
-                    app:srcCompat="@drawable/meme_button" />
+                    app:srcCompat="@drawable/meme_button"
+                    style="@style/button_main_menu" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
