@@ -22,22 +22,31 @@
                 android:fontFamily="@font/cavolini"
                 android:gravity="center_horizontal"
                 android:text="Welcome"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
                 android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="330sp"
-                android:layout_margin="20sp" />
 
             <TextView
-                android:id="@+id/meme_textEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50sp"
                 android:fontFamily="@font/cavolini"
-                android:text="Meme of the day :"
-                android:textSize="20sp" />
+                android:text="Quote of the day:"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/quote_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cavolini"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:background="@drawable/border"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
