@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.keepkalm">
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DialogName"
+            tools:ignore="Instantiatable">
+        </activity>
         <activity android:name=".DecisionActivity"></activity>
         <activity android:name=".RandomActivity" />
         <activity android:name=".CatActivity" />
         <activity android:name=".AboutYouActivity" />
         <activity android:name=".MusicActivity" />
         <activity android:name=".TrumpActivity" />
-        <activity android:name=".DialogName" />
         <activity android:name=".FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,5 +28,12 @@
         </activity>
         <activity android:name=".MainActivity" />
     </application>
+    <!-- mandatory to consume API -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- mandatory to open message application -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
 </manifest>
