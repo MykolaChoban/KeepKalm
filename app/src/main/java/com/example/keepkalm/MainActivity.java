@@ -43,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
         //for debug purpose
         Log.i("user name",user_full_name);
 
+        // MYKOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAA !
         int trackId = getResources().getIdentifier("fart_sound_effect", "raw", getPackageName());
         mediaPlayer = MediaPlayer.create(this, trackId);
+        // MYKOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAA !
+
         fetchQuoteOfTheDay(quoteTextView);
     }
 
@@ -118,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchDecision(View view) {
-        Intent intent = new Intent(this, DecisionActivity.class);
-        startActivity(intent);
+        DecisionActivity dialog = new DecisionActivity();
+        dialog.show(getSupportFragmentManager(),"decisionDialog");
     }
 
     public void launchMeme(View view) {

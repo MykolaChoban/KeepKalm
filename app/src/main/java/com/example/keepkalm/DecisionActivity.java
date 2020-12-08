@@ -1,10 +1,14 @@
 package com.example.keepkalm;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDialogFragment;
 
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -19,7 +23,7 @@ import com.bumptech.glide.Glide;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class DecisionActivity extends AppCompatActivity {
+public class DecisionActivity extends AppCompatDialogFragment {
 
     public static RequestQueue requestQueue;
     public static String decisionMakerApiImage = null;
@@ -27,15 +31,24 @@ public class DecisionActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_decision);
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.activity_decision , null);
 
-        requestQueue = Volley.newRequestQueue(this);
-        imageView = findViewById(R.id.gif_here);
-
+        requestQueue = Volley.newRequestQueue(getContext());
+        imageView = view.findViewById(R.id.gif_here);
         getDecisionGIF("https://yesno.wtf/api/");
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setView(view)
+                .setTitle("Should you do it ?")
+                .setNegativeButton("Got it! ",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        return builder.create();
     }
 
      public void loadImage(String url){
@@ -62,13 +75,7 @@ public class DecisionActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
-
         return decisionMakerApiImage;
     }
 
-    public void closeDialogDecisionMaker(View view) {
-        finish();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 }
