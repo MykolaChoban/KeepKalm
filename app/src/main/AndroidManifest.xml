@@ -14,7 +14,7 @@
             tools:ignore="Instantiatable">
         </activity>
         <activity android:name=".DecisionActivity"></activity>
-        <activity android:name=".RandomActivity" />
+        <activity android:name=".DialogRandom" />
         <activity android:name=".CatActivity" />
         <activity android:name=".AboutYouActivity" />
         <activity android:name=".MusicActivity" />

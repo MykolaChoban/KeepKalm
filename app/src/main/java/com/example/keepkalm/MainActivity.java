@@ -113,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchRandom(View view) {
-        Intent intent = new Intent(this, RandomActivity.class);
-        startActivity(intent);
+        DialogRandom dialog = new DialogRandom();
+        dialog.show(getSupportFragmentManager(),"randomDialog");
     }
 
     public void launchDecision(View view) {
