@@ -43,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
         //for debug purpose
         Log.i("user name",user_full_name);
 
-        // MYKOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAA !
-        int trackId = getResources().getIdentifier("fart_sound_effect", "raw", getPackageName());
-        mediaPlayer = MediaPlayer.create(this, trackId);
-        // MYKOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAA !
-
         fetchQuoteOfTheDay(quoteTextView);
     }
 
