@@ -23,7 +23,7 @@ import com.bumptech.glide.Glide;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class DecisionActivity extends AppCompatDialogFragment {
+public class DialogDecision extends AppCompatDialogFragment {
 
     public static RequestQueue requestQueue;
     public static String decisionMakerApiImage = null;
@@ -42,7 +42,7 @@ public class DecisionActivity extends AppCompatDialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
-                .setTitle("Should you do it ?")
+                .setTitle("The answer is...")
                 .setNegativeButton("Got it! ",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -51,14 +51,14 @@ public class DecisionActivity extends AppCompatDialogFragment {
         return builder.create();
     }
 
-     public void loadImage(String url){
+     private void loadImage(String url){
         Glide
                 .with(this)
                 .load(url)
                 .into(imageView);
     }
 
-    public String getDecisionGIF(String url){
+    private String getDecisionGIF(String url){
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -71,7 +71,7 @@ public class DecisionActivity extends AppCompatDialogFragment {
             }}, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("API ERROR", "Could not fetch the API data");
+                Log.d("API ERROR", "Could not fetch the API data:" + error);
             }
         });
         requestQueue.add(jsonObjectRequest);

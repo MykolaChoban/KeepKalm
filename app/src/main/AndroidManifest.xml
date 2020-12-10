@@ -13,7 +13,7 @@
         <activity android:name=".DialogName"
             tools:ignore="Instantiatable">
         </activity>
-        <activity android:name=".DecisionActivity"></activity>
+        <activity android:name=".DialogDecision"></activity>
         <activity android:name=".RandomActivity" />
         <activity android:name=".CatActivity" />
         <activity android:name=".AboutYouActivity" />

@@ -96,7 +96,7 @@ public class DialogMeme extends AppCompatDialogFragment {
         }
     }
 
-    public void setMemeImage(){
+    private void setMemeImage(){
 
         String url = "https://api.whatdoestrumpthink.com/api/v1/quotes/random";
 
@@ -125,7 +125,7 @@ public class DialogMeme extends AppCompatDialogFragment {
         queue.add(request);
     }
 
-    public void getMeme(){
+    private void getMeme(){
         RequestQueue queue = Volley.newRequestQueue(getContext());
         String url ="https://meme-api.herokuapp.com/gimme";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -151,7 +151,7 @@ public class DialogMeme extends AppCompatDialogFragment {
         queue.add(stringRequest);
     }
 
-    public void displayMeme(ImageView imageView, String url){
+    private void displayMeme(ImageView imageView, String url){
         Picasso.get()
                 .load(url)
                 .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)

@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchDecision(View view) {
-        DecisionActivity dialog = new DecisionActivity();
+        DialogDecision dialog = new DialogDecision();
         dialog.show(getSupportFragmentManager(),"decisionDialog");
     }
 
