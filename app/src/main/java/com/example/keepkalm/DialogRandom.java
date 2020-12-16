@@ -3,6 +3,7 @@ package com.example.keepkalm;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -52,7 +53,13 @@ public class DialogRandom extends AppCompatDialogFragment {
 
                     }
                 })
-                .setNeutralButton("Another one", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Another one", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setNeutralButton("Share", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -76,10 +83,24 @@ public class DialogRandom extends AppCompatDialogFragment {
     {
         super.onResume();
         final AlertDialog d = (AlertDialog)getDialog();
-        if(d != null)
-        {
+        if(d != null){
+            Button positiveButton = (Button) d.getButton(Dialog.BUTTON_POSITIVE);
             Button neutralButton = (Button) d.getButton(Dialog.BUTTON_NEUTRAL);
+
             neutralButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Boolean wantToCloseDialog = false;
+                    String messageHeader = "Hey, did you know that ";
+                    String messageFooter = "\n#App #KeepKalm ";
+                    shareText(messageHeader + randomText.getText().toString() + messageFooter);
+                    if(wantToCloseDialog)
+                        d.dismiss();
+                }
+            });
+            positiveButton.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v)
@@ -119,5 +140,15 @@ public class DialogRandom extends AppCompatDialogFragment {
             }
         });
         queue.add(stringRequest);
+    }
+
+    private void shareText(String textToShare){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, textToShare);
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
     }
 }

@@ -10,11 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DialogName"
-            tools:ignore="Instantiatable">
-        </activity>
-        <activity android:name=".DialogRandom" />
-        <activity android:name=".DialogDecision"></activity>
         <activity android:name=".CatActivity" />
         <activity android:name=".AboutYouActivity" />
         <activity android:name=".MusicActivity" />

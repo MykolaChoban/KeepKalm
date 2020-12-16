@@ -15,7 +15,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
             <ImageView
                 android:id="@+id/cat_imageView"
@@ -37,9 +39,16 @@
                 android:id="@+id/new_image_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:onClick="setCatImageAndQuote"
                 android:text="Another one" />
+
+            <Button
+                android:id="@+id/share_fact_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_share_vector"
+                android:text="Share the cat fact" />
+
         </LinearLayout>
     </ScrollView>
 

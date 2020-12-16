@@ -2,9 +2,11 @@ package com.example.keepkalm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +35,9 @@ public class CatActivity extends AppCompatActivity {
     @BindView(R.id.cat_fact_TextView)
     TextView catFactTextView;
 
+    @BindView(R.id.share_fact_Button)
+    Button shareFactButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,15 @@ public class CatActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         setCatImageAndQuote(null);
+
+        shareFactButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                String messageHeader = "Hey, did you know that ";
+                String messageFooter = "\n#App #KeepKalm ";
+                shareText(messageHeader + catFactTextView.getText().toString() + messageFooter);
+            }
+        });
     }
 
     public void setCatImageAndQuote(View view){
@@ -83,6 +97,16 @@ public class CatActivity extends AppCompatActivity {
             }
         });
         queue.add(request);
+    }
+
+    public void shareText(String textToShare){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, textToShare);
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
     }
 
 }

@@ -22,12 +22,9 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MediaPlayer mediaPlayer;
     private SharedPreferences prefs;
-    private TextView name;
     private TextView quoteTextView;
     private String user_full_name;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +41,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("user name",user_full_name);
 
         fetchQuoteOfTheDay(quoteTextView);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE) {
-            mediaPlayer.start();
-        }
     }
 
     public void fetchQuoteOfTheDay(final TextView textView){
@@ -85,9 +74,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchTrump(View view) {
-        //Intent intent = new Intent(this, TrumpActivity.class);
-        //startActivity(intent);
-
         DialogTrump dialog = new DialogTrump();
         dialog.show(getSupportFragmentManager(),"trumpDialog");
     }
@@ -98,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchAboutYou(View view) {
-        //Intent intent = new Intent(this, AboutYouActivity.class);
-        //startActivity(intent);
-
         DialogChuckNorrisJoke dialog = new DialogChuckNorrisJoke();
         dialog.show(getSupportFragmentManager(),"chuckNorrisDialog");
     }
