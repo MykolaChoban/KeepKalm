@@ -55,8 +55,8 @@ public class FirstActivity extends AppCompatActivity {
                 }else{
                     Intent mainActivityIntent = new Intent(FirstActivity.this, MainActivity.class);
                     startActivity(mainActivityIntent);
+                    finish();
                 }
-                finish();
             }
         }, 2500);
     }
