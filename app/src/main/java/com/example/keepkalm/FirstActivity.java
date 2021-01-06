@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 - maybe use resultActivity than current way
 */
 public class FirstActivity extends AppCompatActivity {
-
+    private final int SPLASH_SCREEN_TIMEOUT = 2500;
     private SharedPreferences prefs;
     private String user_full_name;
 
@@ -58,6 +58,6 @@ public class FirstActivity extends AppCompatActivity {
                     finish();
                 }
             }
-        }, 2500);
+        }, SPLASH_SCREEN_TIMEOUT);
     }
 }
