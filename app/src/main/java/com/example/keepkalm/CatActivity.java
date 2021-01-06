@@ -113,10 +113,8 @@ public class CatActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause(){
         mediaPlayer.start();
-        //mediaPlayer.release();
-        //mediaPlayer = null;
+        super.onPause();
     }
 }
