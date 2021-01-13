@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CatActivity" />
         <activity android:name=".AboutYouActivity" />
+        <activity android:name=".VideoActivity" />
         <activity android:name=".MusicActivity" />
         <activity android:name=".TrumpActivity" />
         <activity android:name=".FirstActivity">

@@ -107,4 +107,10 @@ public class MainActivity extends AppCompatActivity {
         DialogMeme dialog = new DialogMeme();
         dialog.show(getSupportFragmentManager(),"memeDialog");
     }
+
+    public void launchVideo(View view) {
+        Intent intent = new Intent(this, VideoActivity.class);
+        startActivity(intent);
+    }
+
 }
