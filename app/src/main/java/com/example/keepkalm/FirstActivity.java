@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 - maybe use resultActivity than current way
 */
 public class FirstActivity extends AppCompatActivity {
-    private final int SPLASH_SCREEN_TIMEOUT = 2500;
+    private final int SPLASH_SCREEN_TIMEOUT = 1000;
     private SharedPreferences prefs;
     private String user_full_name;
 
@@ -42,7 +42,7 @@ public class FirstActivity extends AppCompatActivity {
         user_full_name = prefs.getString("user_full_name","");
 
         //animation: https://github.com/daimajia/AndroidViewAnimations
-        YoYo.with(Techniques.FadeInRight).duration(2000).repeat(0).playOn(motto);
+        YoYo.with(Techniques.FadeInRight).duration(SPLASH_SCREEN_TIMEOUT).repeat(0).playOn(motto);
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override

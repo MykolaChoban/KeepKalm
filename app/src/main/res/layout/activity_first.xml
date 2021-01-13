@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".FirstActivity">
 
 
@@ -11,16 +12,16 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
         android:layout_marginBottom="326dp"
         android:fontFamily="@font/cavolini"
         android:padding="10dp"
         android:text="@string/app_name"
-        android:textColor="#00BCD4"
+        android:textColor="#016673"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.295"
+        tools:layout_editor_absoluteX="114dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -29,8 +30,10 @@
         android:layout_marginTop="148dp"
         android:layout_marginBottom="57dp"
         android:contentDescription="@string/logo_description"
+        android:outlineAmbientShadowColor="#331E1E"
         app:layout_constraintBottom_toTopOf="@+id/motto"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -39,11 +42,10 @@
         android:id="@+id/motto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="294dp"
+        android:layout_marginBottom="248dp"
         android:gravity="center"
         android:text="@string/motto"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:layout_editor_absoluteX="136dp" />
+        tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
