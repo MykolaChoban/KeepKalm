@@ -22,12 +22,9 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MediaPlayer mediaPlayer;
     private SharedPreferences prefs;
-    private TextView name;
     private TextView quoteTextView;
     private String user_full_name;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +40,7 @@ public class MainActivity extends AppCompatActivity {
         //for debug purpose
         Log.i("user name",user_full_name);
 
-        int trackId = getResources().getIdentifier("fart_sound_effect", "raw", getPackageName());
-        mediaPlayer = MediaPlayer.create(this, trackId);
         fetchQuoteOfTheDay(quoteTextView);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE) {
-            mediaPlayer.start();
-        }
     }
 
     public void fetchQuoteOfTheDay(final TextView textView){
@@ -87,9 +74,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchTrump(View view) {
-        //Intent intent = new Intent(this, TrumpActivity.class);
-        //startActivity(intent);
-
         DialogTrump dialog = new DialogTrump();
         dialog.show(getSupportFragmentManager(),"trumpDialog");
     }
@@ -100,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchAboutYou(View view) {
-        //Intent intent = new Intent(this, AboutYouActivity.class);
-        //startActivity(intent);
-
         DialogChuckNorrisJoke dialog = new DialogChuckNorrisJoke();
         dialog.show(getSupportFragmentManager(),"chuckNorrisDialog");
     }
@@ -118,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchDecision(View view) {
-        Intent intent = new Intent(this, DecisionActivity.class);
-        startActivity(intent);
+        DialogDecision dialog = new DialogDecision();
+        dialog.show(getSupportFragmentManager(),"decisionDialog");
     }
 
     public void launchMeme(View view) {

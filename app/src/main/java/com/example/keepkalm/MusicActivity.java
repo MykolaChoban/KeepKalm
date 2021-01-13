@@ -1,13 +1,23 @@
 package com.example.keepkalm;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MusicActivity extends AppCompatActivity {
 
@@ -27,18 +37,22 @@ public class MusicActivity extends AppCompatActivity {
         }
 
     public String[] listRaw(){
-        Field[] fields = R.raw.class.getDeclaredFields(); //R.raw.class.getFields();
-        String[] files = new String[fields.length];
-        for(int count=0; count < fields.length; count++){
-            files[count] = fields[count].getName();
+        String[] files = null;
+        try {
+            AssetManager assetManager = getAssets();
+            files = assetManager.list("music");
+        }catch (Exception e) {
+
         }
         return files;
     }
 
-    public Button createSongButton(String songName){
+    public Button createSongButton(final String songName){
         final Button button = new Button(this);
-        button.setText(songName);
+        button.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+        button.setText(songName.replace(".mp3",""));
 
+        //FIXME
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
@@ -46,16 +60,26 @@ public class MusicActivity extends AppCompatActivity {
 
         button.setWidth(width);
 
-
-
         //button.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.5f));
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                soundPlayer.pause();
+                soundPlayer.reset();
                 Button button = (Button) v;
-                soundPlayer = MediaPlayer.create(v.getContext(), getResources().getIdentifier(button.getText().toString(), "raw", getPackageName()));
+
+                try {
+                    AssetFileDescriptor descriptor = v.getContext().getAssets().openFd("music/" + songName);
+                    soundPlayer.setDataSource(descriptor.getFileDescriptor(),descriptor.getStartOffset(),descriptor.getLength());
+                    descriptor.close();
+                    soundPlayer.prepare();
+                    soundPlayer.setLooping(true);
+                    soundPlayer.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                //soundPlayer = MediaPlayer.create(v.getContext(), getResources().getIdentifier(button.getText().toString(), "assets/music", getPackageName()));
                 soundPlayer.start();
             }
         });

@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".MusicActivity">
 
+    <Button
+        android:id="@+id/pauseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="pause"
+        android:text="Pause"
+        android:textSize="35sp" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,12 +26,6 @@
             android:orientation="vertical"
             android:padding="5dp">
 
-            <Button
-                android:id="@+id/pauseButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pause"
-                android:onClick="pause"/>
         </LinearLayout>
     </ScrollView>
 
