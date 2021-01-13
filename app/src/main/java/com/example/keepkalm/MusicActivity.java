@@ -1,39 +1,69 @@
 package com.example.keepkalm;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import java.lang.reflect.Field;
 
 public class MusicActivity extends AppCompatActivity {
 
-    private MediaPlayer soundPlayer [] = new MediaPlayer[1];
-    private int soundResources [] = {R.raw.nature_of_life};
+    private MediaPlayer soundPlayer = new MediaPlayer();
+    private String[] soundResources;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
-        for (int i = 0; i < soundPlayer.length; i++){
-            soundPlayer[i] = MediaPlayer.create(this, soundResources[i]);
+
+        soundResources = listRaw();
+
+        for(String songFileName : soundResources)
+            ((LinearLayout) findViewById(R.id.mainLayout)).addView(createSongButton(songFileName));
         }
+
+    public String[] listRaw(){
+        Field[] fields = R.raw.class.getDeclaredFields(); //R.raw.class.getFields();
+        String[] files = new String[fields.length];
+        for(int count=0; count < fields.length; count++){
+            files[count] = fields[count].getName();
+        }
+        return files;
     }
 
-    public void playMusic(View view){
+    public Button createSongButton(String songName){
+        final Button button = new Button(this);
+        button.setText(songName);
 
-        Button button = findViewById(view.getId());
-        String music = button.getText().toString();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
 
-        switch (music){
-            case "Nature Of Life":
-                soundPlayer[0].start();
-                break;
+        button.setWidth(width);
 
-            default:
-                break;
-        }
+
+
+        //button.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0.5f));
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPlayer.pause();
+                Button button = (Button) v;
+                soundPlayer = MediaPlayer.create(v.getContext(), getResources().getIdentifier(button.getText().toString(), "raw", getPackageName()));
+                soundPlayer.start();
+            }
+        });
+
+        return button;
+    }
+
+    public void pause(View view){
+        soundPlayer.pause();
     }
 }
