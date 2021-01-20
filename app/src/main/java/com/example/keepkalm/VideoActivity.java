@@ -39,7 +39,6 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
         }
         Random random = new Random();
         int randIndex = random.nextInt(videoIDList.size());
-        System.out.println(videoIDList.get(randIndex));
         return videoIDList.get(randIndex);
     }
 

@@ -6,4 +6,5 @@
     <string name="gif">decision_gif</string>
     <string name="got_it">Got it!</string>
     <string name="should_you_do_it">Should you do it ?</string>
+    <string name="logo_toolbar">keepkalm</string>
 </resources>

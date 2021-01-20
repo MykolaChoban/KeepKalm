@@ -33,7 +33,6 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();//to hide the appTheme: https://stackoverflow.com/questions/26492522/how-do-i-remove-the-title-bar-in-android-studio
         setContentView(R.layout.activity_first);
 
         ButterKnife.bind(this);
