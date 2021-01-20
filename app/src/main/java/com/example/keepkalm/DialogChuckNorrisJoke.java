@@ -72,7 +72,6 @@ public class DialogChuckNorrisJoke extends AppCompatDialogFragment {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("Volley", response.toString());
                         try {
                             //ex: { "type": "success", "value": { "id": 388, "joke": "The Manhattan Project was not intended to create nuclear weapons, it was meant to recreate the destructive power in a Chuck Norris Roundhouse Kick. They didn't even come close.", "categories": [] } }
                             JSONObject jsonObjectResponse = response.getJSONObject("value");
@@ -84,7 +83,7 @@ public class DialogChuckNorrisJoke extends AppCompatDialogFragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("Volley", "An error occurred.");
+                Log.e("Volley", "An error occurred.");
             }
         });
         queue.add(request);

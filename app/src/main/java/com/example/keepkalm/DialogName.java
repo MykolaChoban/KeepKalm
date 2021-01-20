@@ -3,11 +3,9 @@ package com.example.keepkalm;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatDialogFragment;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +24,6 @@ public class DialogName extends AppCompatDialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Log.d("Debug message", "dialog executed");
         // Get the layout inflater
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         // Inflate and set the layout for the dialog

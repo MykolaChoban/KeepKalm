@@ -4,19 +4,13 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatDialogFragment;
-
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -121,7 +115,7 @@ public class DialogRandom extends AppCompatDialogFragment {
                             textView.setText(textResponse);
                         }
                         catch(Exception e){
-                            Log.i("debug", e.toString());
+                            Log.e("debug", e.toString());
                         }
                     }
                 }, new Response.ErrorListener() {

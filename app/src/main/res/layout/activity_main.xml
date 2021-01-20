@@ -14,7 +14,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_top">
+        android:layout_marginTop="@dimen/margin_top"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                 android:fontFamily="@font/cavolini"
                 android:gravity="center_horizontal"
                 android:text="Welcome"
-                android:textColorLink="#016673"
+                android:textColor="#0B4F64"
                 android:textSize="20sp" />
 
             <TextView
@@ -41,7 +42,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/cavolini"
                 android:text="Quote of the day:"
-                android:textColorLink="#016673"
+                android:textColor="#0B4F64"
                 android:textSize="18sp" />
 
             <TextView
@@ -59,72 +60,100 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/what_is_told_about_you_imageView"
-                    android:onClick="launchAboutYou"
-                    app:srcCompat="@drawable/about_you_button"
-                    style="@style/button_main_menu"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
 
-                <ImageView
-                    android:id="@+id/cat_imageView"
-                    android:onClick="launchCat"
-                    android:padding="5sp"
-                    app:srcCompat="@drawable/cat_button"
-                    style="@style/button_main_menu" />
+                    <ImageView
+                        android:id="@+id/trump_imageView"
+                        android:onClick="launchTrump"
+                        android:layout_height="100dp"
+                        app:srcCompat="@drawable/trump_button"
+                        style="@style/button_main_menu" />
 
-                <ImageView
-                    android:id="@+id/decision_maker_imageView"
-                    android:onClick="launchDecision"
-                    app:srcCompat="@drawable/decision_button"
-                    style="@style/button_main_menu" />
+                    <ImageView
+                        android:id="@+id/what_is_told_about_you_imageView"
+                        android:onClick="launchAboutYou"
+                        android:layout_height="100dp"
+                        app:srcCompat="@drawable/about_you_button"
+                        style="@style/button_main_menu"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/memeButton"
+                        style="@style/button_main_menu"
+                        android:layout_height="100dp"
+                        android:onClick="launchMeme"
+                        app:srcCompat="@drawable/meme_button" />
+
+                    <ImageView
+                        android:id="@+id/random_facts_imageView"
+                        android:onClick="launchRandom"
+                        android:layout_height="100dp"
+                        app:srcCompat="@drawable/random_button"
+                        style="@style/button_main_menu" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/cat_imageView"
+                        android:onClick="launchCat"
+                        android:layout_height="100dp"
+                        android:padding="5sp"
+                        app:srcCompat="@drawable/cat_button"
+                        style="@style/button_main_menu" />
+
+                    <ImageView
+                        android:id="@+id/decision_maker_imageView"
+                        android:onClick="launchDecision"
+                        android:layout_height="100dp"
+                        app:srcCompat="@drawable/decision_button"
+                        style="@style/button_main_menu" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/music_imageView"
+                        android:onClick="launchMusic"
+                        android:layout_height="100dp"
+                        app:srcCompat="@drawable/music_button"
+                        style="@style/button_main_menu" />
+
+                    <ImageView
+                        android:id="@+id/videoButton"
+                        android:layout_height="100dp"
+                        android:onClick="launchVideo"
+                        app:srcCompat="@drawable/video_button"
+                        style="@style/button_main_menu" />
+                </LinearLayout>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/trump_imageView"
-                    android:onClick="launchTrump"
-                    app:srcCompat="@drawable/trump_button"
-                    style="@style/button_main_menu" />
-
-                <ImageView
-                    android:id="@+id/music_imageView"
-                    android:onClick="launchMusic"
-                    app:srcCompat="@drawable/music_button"
-                    style="@style/button_main_menu" />
-
-                <ImageView
-                    android:id="@+id/random_facts_imageView"
-                    android:onClick="launchRandom"
-                    app:srcCompat="@drawable/random_button"
-                    style="@style/button_main_menu" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/memeButton"
-                    android:onClick="launchMeme"
-                    app:srcCompat="@drawable/meme_button"
-                    style="@style/button_main_menu" />
-
-                <ImageView
-                    android:id="@+id/videoButton"
-                    android:onClick="launchVideo"
-                    app:srcCompat="@drawable/video_button"
-                    style="@style/button_main_menu" />
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 

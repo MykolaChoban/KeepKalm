@@ -101,7 +101,7 @@ public class CatActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("Volley", "An error occurred.");
+                Log.e("Volley", "An error occurred.");
             }
         });
         queue.add(request);

@@ -2,23 +2,16 @@ package com.example.keepkalm;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class MusicActivity extends AppCompatActivity {
 

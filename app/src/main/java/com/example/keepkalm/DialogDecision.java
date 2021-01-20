@@ -1,7 +1,6 @@
 package com.example.keepkalm;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -10,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -18,7 +16,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -70,7 +67,7 @@ public class DialogDecision extends AppCompatDialogFragment {
             }}, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("API ERROR", "Could not fetch the API data:" + error);
+                Log.e("API ERROR", "Could not fetch the API data:" + error);
             }
         });
         requestQueue.add(jsonObjectRequest);

@@ -26,10 +26,7 @@ import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -111,7 +108,7 @@ public class DialogMeme extends AppCompatDialogFragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("Volley", "An error occurred.");
+                Log.e("Volley", "An error occurred.");
             }
         }){
             //FIXME: without it, the request response is 400, i checked the header of postman and find out this and it works
@@ -139,7 +136,7 @@ public class DialogMeme extends AppCompatDialogFragment {
                             displayMeme(imageMeme, imageUrl);
                         }
                         catch(Exception e){
-                            Log.i("debug", e.toString());
+                            Log.e("debug", e.toString());
                         }
                     }
                 }, new Response.ErrorListener() {

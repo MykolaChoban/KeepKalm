@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         name.setText("Hello " + user_full_name);
         //for debug purpose
-        Log.i("user name",user_full_name);
 
         fetchQuoteOfTheDay(quoteTextView);
     }
@@ -63,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject contents = response.getJSONObject("contents");
                             JSONArray quotes = contents.getJSONArray("quotes");
                             JSONObject quote = (JSONObject) quotes.get(FIRST_ELEMENT);
-                            Log.d("Volley",quote.toString());
                             textView.setText(quote.getString("quote") +"\n-"+quote.getString("author"));
                         } catch (JSONException e) {
                             e.printStackTrace();

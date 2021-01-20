@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatDialogFragment;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -100,7 +99,6 @@ public class DialogTrump extends AppCompatDialogFragment {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("Volley", response.toString());
                         //{"appeared_at":"2016-02-12T19:45:53.000Z","created_at":"2019-12-13T16:58:39.994Z","quote_id":"CL9VtedcQDO99eRYYKvmew","tags":["Ted Cruz"],"updated_at":"2019-12-13T17:26:27.045Z","value":"If @TedCruz doesn’t clean up his act, stop cheating, & doing negative ads, I have standing to sue him for not being a natural born citizen.","_embedded":{"author":[{"author_id":"wVE8Y7BoRKCBkxs1JkqAvw","bio":null,"created_at":"2019-12-13T16:43:24.728Z","name":"Donald Trump","slug":"donald-trump","updated_at":"2019-12-13T16:43:24.728Z","_links":{"self":{"href":"http://www.tronalddump.io/author/wVE8Y7BoRKCBkxs1JkqAvw"}}}],"source":[{"created_at":"2019-12-13T16:53:10.990Z","filename":null,"quote_source_id":"rMwWqTIlTAGZEWi90v6Q6Q","remarks":null,"updated_at":"2019-12-13T16:53:10.990Z","url":"https://twitter.com/realDonaldTrump/status/698231571594276866","_links":{"self":{"href":"http://www.tronalddump.io/quote-source/rMwWqTIlTAGZEWi90v6Q6Q"}}}]},"_links":{"self":{"href":"http://www.tronalddump.io/quote/CL9VtedcQDO99eRYYKvmew"}}}
                         try {
                             quote_TextView.setText(response.getString("message"));
@@ -111,7 +109,7 @@ public class DialogTrump extends AppCompatDialogFragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("Volley", "An error occurred.");
+                Log.e("Volley", "An error occurred.");
             }
         }){
             //FIXME: without it, the request response is 400, i checked the header of postman and find out this and it works

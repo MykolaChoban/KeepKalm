@@ -7,9 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
-import android.view.Window;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -23,7 +20,7 @@ import butterknife.ButterKnife;
 - maybe use resultActivity than current way
 */
 public class FirstActivity extends AppCompatActivity {
-    private final int SPLASH_SCREEN_TIMEOUT = 1000;
+    private final int SPLASH_SCREEN_TIMEOUT = 1500;
     private SharedPreferences prefs;
     private String user_full_name;
 
