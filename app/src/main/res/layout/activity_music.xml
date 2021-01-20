@@ -8,8 +8,8 @@
     tools:context=".MusicActivity">
 
     <include
-        layout="@layout/toolbar"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <Button
         android:id="@+id/pauseButton"
@@ -21,7 +21,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="15dp">
 
         <LinearLayout
             android:id="@+id/mainLayout"

@@ -38,13 +38,13 @@ public class DialogRandom extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setTitle("Did you know that...")
-                .setNegativeButton("No more",new DialogInterface.OnClickListener() {
+                .setNegativeButton("Done",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 })
-                .setPositiveButton("Another one", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Next", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

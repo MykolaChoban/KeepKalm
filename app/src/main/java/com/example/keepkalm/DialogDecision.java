@@ -1,6 +1,5 @@
 package com.example.keepkalm;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import android.app.AlertDialog;
@@ -34,7 +33,7 @@ public class DialogDecision extends AppCompatDialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = requireActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.activity_decision , null);
+        View view = inflater.inflate(R.layout.activity_dialog_decision, null);
 
         requestQueue = Volley.newRequestQueue(getContext());
         imageView = view.findViewById(R.id.gif_here);

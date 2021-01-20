@@ -11,18 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CatActivity" />
-        <activity android:name=".AboutYouActivity" />
         <activity android:name=".VideoActivity" />
         <activity android:name=".MusicActivity" />
-        <activity android:name=".TrumpActivity" />
-        <activity android:name=".FirstActivity">
+        <activity android:name=".FirstActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
     <!-- mandatory to consume API -->
     <uses-permission android:name="android.permission.INTERNET"/>

@@ -40,13 +40,13 @@ public class DialogTrump extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setTitle("Donald trump said:")
-                .setNegativeButton("No more",new DialogInterface.OnClickListener() {
+                .setNegativeButton("Done",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 })
-                .setNeutralButton("Another one", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Next", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -71,8 +71,8 @@ public class DialogTrump extends AppCompatDialogFragment {
         final AlertDialog d = (AlertDialog)getDialog();
         if(d != null)
         {
-            Button neutralButton = (Button) d.getButton(Dialog.BUTTON_NEUTRAL);
-            neutralButton.setOnClickListener(new View.OnClickListener()
+            Button positiveButton = (Button) d.getButton(Dialog.BUTTON_POSITIVE);
+            positiveButton.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v)
