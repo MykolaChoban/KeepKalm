@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 - maybe use resultActivity than current way
 */
 public class FirstActivity extends AppCompatActivity {
-    private final int SPLASH_SCREEN_TIMEOUT = 1500;
+    private static final int SPLASH_SCREEN_TIMEOUT = 1500;
     private SharedPreferences prefs;
     private String user_full_name;
 
@@ -34,7 +34,7 @@ public class FirstActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        prefs = getSharedPreferences("userInfo",MODE_PRIVATE);
+        prefs = getSharedPreferences("userInfo", MODE_PRIVATE);
         user_full_name = prefs.getString("user_full_name","");
 
         //animation: https://github.com/daimajia/AndroidViewAnimations
@@ -51,7 +51,6 @@ public class FirstActivity extends AppCompatActivity {
                 }else{
                     Intent mainActivityIntent = new Intent(FirstActivity.this, MainActivity.class);
                     startActivity(mainActivityIntent);
-                    finish();
                 }
             }
         }, SPLASH_SCREEN_TIMEOUT);

@@ -32,12 +32,7 @@ public class DialogName extends AppCompatDialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
-                .setTitle("Who are you?")
-                /*.setPositiveButton("Validate my name", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                })*/;
+                .setTitle("Who are you?");
 
         mainActivityIntent = new Intent(getContext(), MainActivity.class);
         nameEditText = view.findViewById(R.id.edit_person_name);
@@ -52,6 +47,7 @@ public class DialogName extends AppCompatDialogFragment {
                         editor.putString("user_full_name",nameEditText.getText().toString());
                         editor.apply();
                         startActivity(mainActivityIntent);
+                        getActivity().finish();
                     }else{
                         //animation: https://github.com/daimajia/AndroidViewAnimations
                         YoYo.with(Techniques.Shake).duration(200).repeat(5).playOn(nameEditText);

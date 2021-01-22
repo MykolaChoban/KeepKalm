@@ -74,7 +74,7 @@ public class CatActivity extends AppCompatActivity {
         Picasso.get()
                 .load("https://cataas.com/cat")
                 .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-                .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE) //.placeholder(R.drawable.default_image_placeholder)
+                .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
                 .into(imageView);
     }
 
