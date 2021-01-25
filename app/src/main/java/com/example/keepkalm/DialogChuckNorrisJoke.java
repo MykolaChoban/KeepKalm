@@ -89,13 +89,6 @@ public class DialogChuckNorrisJoke extends AppCompatDialogFragment {
         queue.add(request);
     }
 
-    //  https://stackoverflow.com/questions/2620444/how-to-prevent-a-dialog-from-closing-when-a-button-is-clicked
-    //onStart() is where dialog.show() is actually called on
-    //the underlying dialog, so we have to do it there or
-    //later in the lifecycle.
-    //Doing it in onResume() makes sure that even if there is a config change
-    //environment that skips onStart then the dialog will still be functioning
-    //properly after a rotation.
     @Override
     public void onResume()
     {

@@ -124,5 +124,4 @@ public class DialogMeme extends AppCompatDialogFragment {
         queue.add(stringRequest);
     }
 
-
 }

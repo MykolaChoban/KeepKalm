@@ -51,6 +51,7 @@ public class FirstActivity extends AppCompatActivity {
                 }else{
                     Intent mainActivityIntent = new Intent(FirstActivity.this, MainActivity.class);
                     startActivity(mainActivityIntent);
+                    finish();
                 }
             }
         }, SPLASH_SCREEN_TIMEOUT);

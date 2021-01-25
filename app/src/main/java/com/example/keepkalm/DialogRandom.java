@@ -29,6 +29,8 @@ public class DialogRandom extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.activity_dialog_random , null);
         randomText = view.findViewById(R.id.randomText);
 
+        setRandomText(randomText);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setTitle("Did you know that...")
@@ -51,18 +53,10 @@ public class DialogRandom extends AppCompatDialogFragment {
                     }
                 });
 
-        setRandomText(randomText);
 
         return builder.create();
     }
 
-    //  https://stackoverflow.com/questions/2620444/how-to-prevent-a-dialog-from-closing-when-a-button-is-clicked
-    //onStart() is where dialog.show() is actually called on
-    //the underlying dialog, so we have to do it there or
-    //later in the lifecycle.
-    //Doing it in onResume() makes sure that even if there is a config change
-    //environment that skips onStart then the dialog will still be functioning
-    //properly after a rotation.
     @Override
     public void onResume()
     {

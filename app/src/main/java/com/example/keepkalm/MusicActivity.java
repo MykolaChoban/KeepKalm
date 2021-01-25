@@ -46,7 +46,7 @@ public class MusicActivity extends AppCompatActivity {
 
     public Button createSongButton(final String songName){
         final Button button = new Button(this);
-        button.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+        button.setTextSize(TypedValue.COMPLEX_UNIT_SP,22);
         button.setText(songName.replace(".mp3","").replace("_"," "));
 
         //FIXME
