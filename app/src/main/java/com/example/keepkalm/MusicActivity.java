@@ -87,4 +87,11 @@ public class MusicActivity extends AppCompatActivity {
     public void pause(View view){
         soundPlayer.pause();
     }
+
+    @Override
+    protected void onPause(){
+        soundPlayer.reset();
+        soundPlayer.release();
+        super.onPause();
+    }
 }
