@@ -27,15 +27,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:maxHeight="350dp"
-                android:src="@drawable/default_image_placeholder" />
+                android:maxHeight="350dp"/>
 
             <TextView
                 android:id="@+id/cat_fact_TextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="Cat fact is loading..."
+                android:text="Cat fact is loading...If it is too long check your network connection :)"
                 android:textAlignment="center"
                 android:textSize="22sp"
                 android:background="@drawable/border"
