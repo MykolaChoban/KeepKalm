@@ -80,7 +80,6 @@ public class CatActivity extends AppCompatActivity {
 
     public void fetchCatFact(final TextView textView){
         //documentation  https://github.com/tonytran1/Cat-Fact-API
-        // nul: https://catfact.ninja/     https://cat-fact.herokuapp.com/#/       https://alexwohlbruck.github.io/cat-facts/docs/
         //String url = "https://catfact.ninja/fact";
         String url = "https://the-cat-fact.herokuapp.com/api/randomfact";
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -102,6 +101,7 @@ public class CatActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("Volley", "An error occurred.");
+                textView.setText("An error occured, if your network connection works please inform us of this issue");
             }
         });
         queue.add(request);
